@@ -20,8 +20,8 @@ class App extends React.Component {
   }
 
   onChangeListener(event){
-    console.log('trying to change')
-    console.log(event.target.value)
+    // console.log('trying to change')
+    // console.log(event.target.value)
     this.setState({
       arrayLength: event.target.value
     })
@@ -44,7 +44,7 @@ class App extends React.Component {
   }
 
   onSortHandler(){
-    console.log('in onSortHandler')
+    // console.log('in onSortHandler')
     finalMS(this.state.array, this.updateArray)
     // this.setState({
     //   array: arr
@@ -56,10 +56,13 @@ class App extends React.Component {
     arr.forEach((element) => {
       newArr.push(...element)
     })
+    
+    console.log(newArr, 'THIS IS NEWARR')
+    console.log(this.state.array, 'THIS IS STATE ARRAY')
     this.setState({
       array: newArr
     })
-    console.log(this.state)
+    // console.log(this.state)
   }
 
   render(){

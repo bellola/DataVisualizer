@@ -33,7 +33,7 @@ function split(arr){
 }
 
 function iterator (arr){
-  console.log(arr.length)
+  // console.log(arr.length, 'THIS IS ARRAY LENGth')
   let finalarr =[]
   for(let i = 0; i < arr.length; i++){
     if(i%2 === 0 && arr[i+1]){
