@@ -1,6 +1,7 @@
 export default async function finalMS(arr, updateUI){
+  console.log(arr)
   let splitarr = split(arr)
-
+  console.log(splitarr,'THIS IS SPLITARR')
   for(let i = 0; i < log(arr.length); i++){
 
     splitarr = iterator(splitarr)
@@ -8,7 +9,7 @@ export default async function finalMS(arr, updateUI){
     updateUI(splitarr)
     sleep(500)
   }
-
+console.log(splitarr)
 return splitarr
 }
 

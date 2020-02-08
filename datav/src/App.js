@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import GraphContainer from './components/GraphContainer'
 import NavBar from './components/NavBar'
-
-import finalMS from './algorithms/mergesort'
+// import bubbleSort from './algorithms/bubblesort'
+// import finalMS from './algorithms/mergesort'
+import bubbleSort from './algorithms/bubblesort';
 
 class App extends React.Component {
   constructor(){
@@ -45,20 +46,26 @@ class App extends React.Component {
 
   onSortHandler(){
     // console.log('in onSortHandler')
-    finalMS(this.state.array, this.updateArray)
+    // finalMS(this.state.array, this.updateArray)
+    this.setState({
+      array: bubbleSort(this.state.array)
+    })
     // this.setState({
     //   array: arr
     // })
+
   }
 
+
+  //UPDATE ARRAY UPDATES
+
   updateArray(arr){
+    console.log(arr, 'THIS IS UPDATEARR')
     let newArr = []
     arr.forEach((element) => {
       newArr.push(...element)
     })
     
-    console.log(newArr, 'THIS IS NEWARR')
-    console.log(this.state.array, 'THIS IS STATE ARRAY')
     this.setState({
       array: newArr
     })
