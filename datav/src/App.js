@@ -57,7 +57,7 @@ class App extends React.Component {
   }
 
 
-  //UPDATE ARRAY UPDATES
+  //UPDATE ARRAY WORKS FOR THE SPLITTED ARRAYS ON MERGESORT ONLY
 
   updateArray(arr){
     console.log(arr, 'THIS IS UPDATEARR')
