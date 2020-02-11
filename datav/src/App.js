@@ -4,15 +4,15 @@ import GraphContainer from './components/GraphContainer'
 import NavBar from './components/NavBar'
 // import bubbleSort from './algorithms/bubblesort'
 // import finalMS from './algorithms/mergesort'
-import bubbleSort from './algorithms/bubblesort';
+// import bubbleSort from './algorithms/bubblesort';
 
 class App extends React.Component {
   constructor(){
     super()
 
     this.state ={
-      array: [1,2,4],
-      arrayLength: 50
+      array: [5,1],
+      arrayLength: 50,
   }
   this.onChangeListener = this.onChangeListener.bind(this)
   this.onMouseUpListener = this.onMouseUpListener.bind(this)
@@ -44,16 +44,78 @@ class App extends React.Component {
     })
   }
 
-  onSortHandler(){
-    // console.log('in onSortHandler')
-    // finalMS(this.state.array, this.updateArray)
-    this.setState({
-      array: bubbleSort(this.state.array)
-    })
-    // this.setState({
-    //   array: arr
-    // })
+swap(arr, first_Index, second_Index){
+    var temp = arr[first_Index];
+    arr[first_Index] = arr[second_Index];
+    arr[second_Index] = temp;
+}
 
+  onSortHandler(){
+    console.log(this.state.array)
+
+
+
+    // for (let i = 0; i < array.length; i++){
+      //         for (let j =0; j < array.length-1; j++){
+      //             if (array[j] > array[j+1]){
+      //                 swap(array, j, j+1);
+                      
+      //             }
+      //         }
+      //         // updateUI(array)
+      //     }
+
+
+    let arr = this.state.array.slice(0)
+    console.log(arr)
+   for(let i = 0; i < arr.length; i++){
+    for (let j = 0; j< arr.length-1-i;j++){
+         let a = arr[j]
+        let b = arr[j+1]
+        if(a>b){
+          this.swap(arr,a,b)
+           this.setState({
+        array:arr
+      })
+       } 
+
+       
+
+
+       if(i<arr.length){
+        j = j+1
+        if(j >= arr.length-i-1){
+            j=0
+            i=i+1
+        }
+   } else{
+     console.log('done')
+   }
+  
+
+
+
+
+
+      
+    }
+  }
+      
+    console.log(this.state.array)
+
+    // this.setState({
+    //   array: bubbleSort(this.state.array)
+    // })
+   
+  
+  
+
+  }
+
+  reset(){
+    this.setState({
+      array: []
+    })
   }
 
 
@@ -78,6 +140,7 @@ class App extends React.Component {
       <NavBar onChange={this.onChangeListener} onMouseUp = {this.onMouseUpListener} arrayLength={this.state.arrayLength}/>
       <GraphContainer graphArr={this.state.array} />
       <button onClick={()=>this.onSortHandler()}>Sort</button>
+      <button onClick={() => this.reset()}>Reset</button>
     </div>
   );
 }}
